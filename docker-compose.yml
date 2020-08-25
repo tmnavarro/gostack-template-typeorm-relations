@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  goStack1_postgres:
+    image: postgres:9.6
+    environment:
+      - POSTGRES_DB=gostack_desafio09
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=docker
+      - TZ=GMT
+    volumes:
+      - './dockerdatabases/postgres:/var/lib/postgresql/data'
+    ports:
+      - 5432:5432
+
+  gb_redis:
+    image: redis:alpine
+    ports:
+      - 6379:6379
